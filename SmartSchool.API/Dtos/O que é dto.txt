@@ -1,0 +1,3 @@
+Data Trance Objects - Transferencia de dados no formato json para quem for consumir a api. Mudar a maneira do objeto ser transferido
+
+Ajuda a não enviar muitas informações desnecessárias.

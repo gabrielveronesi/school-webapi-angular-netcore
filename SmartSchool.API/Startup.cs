@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -41,6 +42,9 @@ namespace SmartSchool.API
                         opt => opt.SerializerSettings.ReferenceLoopHandling =
                         Newtonsoft.Json.ReferenceLoopHandling.Ignore
                     );
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); //Faz isso pro automapper procurarm dentro do dos assemblis (dlls) quem está herdando dos profiles
+
         }
 
 
