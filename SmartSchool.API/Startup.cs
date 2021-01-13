@@ -37,6 +37,7 @@ namespace SmartSchool.API
             //services.AddSingleton<Repository, Repository>();
             //services.AddTransient<Repository, Repository>();
             services.AddScoped<IRepository, Repository>();
+            
             services.AddControllers()
                     .AddNewtonsoftJson(
                         opt => opt.SerializerSettings.ReferenceLoopHandling =
