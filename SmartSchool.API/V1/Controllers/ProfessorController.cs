@@ -4,13 +4,17 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartSchool.API.Data;
-using SmartSchool.API.Dtos;
+using SmartSchool.API.V1.Dtos;
 using SmartSchool.API.Models;
 
-namespace SmartSchool.API.Controllers
+namespace SmartSchool.API.V1.Controllers
 {
+    ///<sumary>
+    /// Versão 1 do meu controlador de Professor
+    ///</sumary>
     [ApiController]
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}[controller]")]
     public class ProfessorController : ControllerBase
     {
 
@@ -36,11 +40,11 @@ namespace SmartSchool.API.Controllers
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            var professor = _repo.GetProfessorById(id, false);
+            var professor = _repo.GetProfessorById(id, true);
             if (professor == null) return BadRequest("O Professor não foi encontrado");
 
             var professorDto = _mapper.Map<ProfessorDto>(professor);
-            return Ok(professorDto);
+            return Ok(professor);
         }
         
          [HttpGet("{getRegister}")]
