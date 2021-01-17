@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using SmartSchool.API.Helpers;
 using SmartSchool.API.Models;
 
 namespace SmartSchool.API.Data
@@ -10,6 +13,7 @@ namespace SmartSchool.API.Data
          bool SaveChanges();
     
         //ALUNOS
+        public Task<PageList<Aluno>> GetAllAlunosAsync(PageParams pageParams, bool includeProfessor = false);
         public Aluno[] GetAllAlunos(bool includeProfessor = false);
         public Aluno[] GetAllAlunosByDisciplinaId(int disciplinaId, bool includeProfessor = false);
         public Aluno GetAlunoById(int alunoId, bool includeProfessor = false);

@@ -36,11 +36,10 @@ namespace SmartSchool.API
                 context => context.UseSqlite(Configuration.GetConnectionString("Default"))
             
              );
-            
-            //injeção de dependencia?
+             
             //services.AddSingleton<Repository, Repository>();
             //services.AddTransient<Repository, Repository>();
-            services.AddScoped<IRepository, Repository>();
+            services.AddScoped<IRepository, Repository>(); //injeção de dependencia
             
             services.AddControllers()
                     .AddNewtonsoftJson(

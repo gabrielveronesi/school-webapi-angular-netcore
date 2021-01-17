@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using SmartSchool.API.Data;
 using SmartSchool.API.V1.Dtos;
 using SmartSchool.API.Models;
+using System.Threading.Tasks;
+using SmartSchool.API.Helpers;
 
 namespace SmartSchool.API.V1.Controllers
 {
@@ -14,7 +16,7 @@ namespace SmartSchool.API.V1.Controllers
     ///</sumary>
     [ApiController]
     [ApiVersion("1.0")]
-    [Route("api/v{version:apiVersion}[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class AlunoController : ControllerBase
     {
         //quando eu instanciar uma controller do tipo aluno vou passar como parametro o meu contexto -> _context
@@ -31,11 +33,17 @@ namespace SmartSchool.API.V1.Controllers
         }
         
         [HttpGet]
-        public IActionResult Get()
+        //api/v1/aluno?pageNumber=1&pageSize=5
+        public async Task<IActionResult> Get([FromQuery]PageParams pageParams) //Quando eu utilizo o [FromQuery] é como se tivesse passado um BODY pra buscar alunos. SÓ PRA NAO DAR ERRO
         {
-            var alunos = _repo.GetAllAlunos(true);
+            //Porque trabalhar com task? Ganho de performace, sempre usar async
+            var alunos = await _repo.GetAllAlunosAsync(pageParams, true);
 
-            return Ok(_mapper.Map<IEnumerable<AlunoDto>>(alunos));
+            var alunosResult = _mapper.Map<IEnumerable<AlunoDto>>(alunos);
+
+            Response.AddPagination(alunos.CurrentPag, alunos.PageSize, alunos.TotalCount, alunos.TotalPages); //ELe sempre vai me mostrar a Pagina Atual, o Tamanho de Items, o Total de Items e o TOtal de pagionas 
+
+            return Ok(alunosResult);
         }
         //api/aluno/1
         ///<sumary>
