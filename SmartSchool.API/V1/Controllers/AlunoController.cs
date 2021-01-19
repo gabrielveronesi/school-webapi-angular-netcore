@@ -46,9 +46,11 @@ namespace SmartSchool.API.V1.Controllers
             return Ok(alunosResult);
         }
         //api/aluno/1
-        ///<sumary>
-        ///Método responsavel para retornar 1 aluno pelo ID
-        ///</sumary>
+        /// <summary>
+        /// Método responsavel para retornar 1 aluno pelo ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {

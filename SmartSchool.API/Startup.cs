@@ -98,12 +98,12 @@ namespace SmartSchool.API
                 var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
 
                 options.IncludeXmlComments(xmlCommentsFullPath);
-        });
-
+            });
+            services.AddCors();
         }
 
 
-        // 
+        
         public void Configure(IApplicationBuilder app, 
                               IWebHostEnvironment env,
                               IApiVersionDescriptionProvider apiProviderDescription)
