@@ -31,11 +31,11 @@ namespace SmartSchool.API
         // Define as rotas dos controller??.
         public void ConfigureServices(IServiceCollection services)
         {
-            
+            //Dado a rota de Aluno(AlunoController) por exemplo, eu posso enjetar o SmartContext dentro da controller!
             services.AddDbContext<SmartContext>(
-                context => context.UseMySql(Configuration.GetConnectionString("MySqlConnection"),
-                providerOptions => providerOptions.EnableRetryOnFailure())
-            );
+                context => context.UseSqlite(Configuration.GetConnectionString("Default"))
+            
+             );
              
             //services.AddSingleton<Repository, Repository>();
             //services.AddTransient<Repository, Repository>();
