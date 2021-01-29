@@ -114,6 +114,7 @@ namespace SmartSchool.API
             }
 
             app.UseRouting();
+            app.UseCors( x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyMethod());//permição para acessar a API
 
             app.UseSwagger()
                 .UseSwaggerUI(options => 
@@ -136,5 +137,7 @@ namespace SmartSchool.API
                 endpoints.MapControllers();
             });
         }
+
+        
     }
 }

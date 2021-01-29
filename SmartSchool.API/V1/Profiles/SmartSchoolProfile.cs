@@ -2,6 +2,7 @@ using AutoMapper;
 using SmartSchool.API.V1.Dtos;
 using SmartSchool.API.Models;
 using SmartSchool.API.Helpers;
+using SmartSchool.WebAPI.V1.Dtos;
 
 namespace SmartSchool.API.V1.Helpers
 {
@@ -22,6 +23,7 @@ namespace SmartSchool.API.V1.Helpers
 
                 CreateMap<AlunoDto, Aluno>();
                 CreateMap<Aluno, AlunoRegistrarDto>().ReverseMap();
+                CreateMap<Aluno, AlunoPatchDto>().ReverseMap();
 
             CreateMap<Professor, ProfessorDto>()
                 .ForMember(
@@ -31,7 +33,10 @@ namespace SmartSchool.API.V1.Helpers
                 
 
                 CreateMap<ProfessorDto, Professor>();
-                CreateMap<Professor, ProfessorDto>().ReverseMap();    
+                CreateMap<Professor, ProfessorDto>().ReverseMap(); 
+
+                CreateMap<DisciplinaDto, Disciplina>().ReverseMap();
+                CreateMap<CursoDto, Curso>().ReverseMap();   
         }
         
     }
