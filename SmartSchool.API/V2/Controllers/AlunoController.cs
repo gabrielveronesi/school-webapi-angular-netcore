@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using SmartSchool.API.Data;
 using SmartSchool.API.V1.Dtos;
 using SmartSchool.API.Models;
+using SmartSchool.WebAPI.Data;
 
 namespace SmartSchool.API.V2.Controllers
 {

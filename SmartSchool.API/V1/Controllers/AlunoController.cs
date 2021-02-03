@@ -8,6 +8,7 @@ using SmartSchool.API.V1.Dtos;
 using SmartSchool.API.Models;
 using System.Threading.Tasks;
 using SmartSchool.API.Helpers;
+using SmartSchool.WebAPI.Data;
 
 namespace SmartSchool.API.V1.Controllers
 {
@@ -45,7 +46,7 @@ namespace SmartSchool.API.V1.Controllers
 
             return Ok(alunosResult);
         }
-        //api/aluno/1
+
         /// <summary>
         /// Método responsavel para retornar 1 aluno pelo ID
         /// </summary>
@@ -61,25 +62,12 @@ namespace SmartSchool.API.V1.Controllers
             return Ok(alunoDto);
         }
 
-        [HttpGet("{getRegister}")]
-        public IActionResult GetRegister()
-        {
-           return Ok(new AlunoRegistrarDto());
-        }
-
-
-
         [HttpGet("ByDisciplina/{id}")]
         public async Task<IActionResult> GetByDisciplicaId(int id)
         {
             var result = await _repo.GetAllAlunosByDisciplinaIdAsync(id, false);
            return Ok(result);
         }
-
-
-
-
-
 
         [HttpPost]
         public IActionResult Post(AlunoRegistrarDto model)

@@ -13,6 +13,7 @@ import { ProfessoresAlunosComponent } from './components/alunos/professores-alun
 import { ProfessoresComponent } from './components/professores/professores.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AdicionarAlunoComponent } from './components/adicionarAluno/adicionarAluno.component';
 import { TituloComponent } from './components/shared/titulo/titulo.component';
 import { NavComponent } from './components/shared/nav/nav.component';
 
@@ -28,6 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     AlunosComponent,
+    AdicionarAlunoComponent,
     AlunosProfessoresComponent,
     ProfessorDetalheComponent,
     ProfessoresAlunosComponent,

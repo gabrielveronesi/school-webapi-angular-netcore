@@ -16,6 +16,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Options;
+using SmartSchool.WebAPI.Data;
 
 namespace SmartSchool.API
 {
@@ -114,7 +115,7 @@ namespace SmartSchool.API
             }
 
             app.UseRouting();
-            app.UseCors( x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyMethod());//permição para acessar a API
+            app.UseCors( x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());//permição para acessar a API
 
             app.UseSwagger()
                 .UseSwaggerUI(options => 

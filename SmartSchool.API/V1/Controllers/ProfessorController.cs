@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using SmartSchool.API.Data;
 using SmartSchool.API.V1.Dtos;
 using SmartSchool.API.Models;
+using SmartSchool.WebAPI.Data;
 
 namespace SmartSchool.API.V1.Controllers
 {
@@ -56,11 +57,12 @@ namespace SmartSchool.API.V1.Controllers
             return Ok(_mapper.Map<IEnumerable<ProfessorDto>>(Professores));
         }
         
-         [HttpGet("{getRegister}")]
+        /* [HttpGet("{getRegister}")]
         public IActionResult GetRegister()
         {
            return Ok(new ProfessorRegistrarDto());
         }
+        */
         
 
         [HttpPost]
